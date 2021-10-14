@@ -2,7 +2,6 @@ package spring_boot.service;
 
 import spring_boot.model.User;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 
@@ -12,7 +11,7 @@ public interface UserService {
 
     void removeUserById(long id);
 
-    Optional<User> getUserById(long id);
+    User getUserById(long id);
 
     List<User> getAllUsers();
 

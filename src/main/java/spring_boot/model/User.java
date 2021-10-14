@@ -1,5 +1,6 @@
 package spring_boot.model;
 
+import org.hibernate.cfg.Environment;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;

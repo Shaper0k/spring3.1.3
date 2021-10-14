@@ -42,13 +42,13 @@ public class UserController {
         return "userpage";
     }
 
-    @GetMapping(value = "/admin")
-    public String listUsers(@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("user", user);
-        model.addAttribute("allUsers", userService.getAllUsers());
-        model.addAttribute("allRoles", roleService.getAllRoles());
-        return "adminpage";
-    }
+//    @GetMapping(value = "/admin")
+//    public String listUsers(@AuthenticationPrincipal User user, Model model) {
+//        model.addAttribute("user", user);
+//        model.addAttribute("allUsers", userService.getAllUsers());
+//        model.addAttribute("allRoles", roleService.getAllRoles());
+//        return "adminpage";
+//    }
 
     @GetMapping(value = "/admin/new")
     public String newUser(Model model) {

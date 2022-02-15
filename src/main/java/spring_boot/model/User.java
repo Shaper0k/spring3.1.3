@@ -1,6 +1,6 @@
 package spring_boot.model;
 
-import org.hibernate.cfg.Environment;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
@@ -22,6 +22,7 @@ public class User implements UserDetails {
     @Column(name = "lastName")
     private String lastName;
 
+
     @Column(name = "email")
     private String email;
 
@@ -36,9 +37,8 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(Long id, String username, String lastName, String email, String password,
+    public User(String username, String lastName, String email, String password,
                 Set<Role> roles) {
-        this.id = id;
         this.username = username;
         this.lastName = lastName;
         this.email = email;

@@ -6,22 +6,22 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Admin Page</title>
+    <title>SHOP</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <!--Верхняя панель-->
-<div class="container-fluid">
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand"
-              th:text="${user.email} + ' with role: ' + ${user.roles.toString.replace('ROLE_','').replace('[', '').replace(']', '')}"></span>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-            </li>
-        </ul>
-    </nav>
-</div>
+<!--<div class="container-fluid">-->
+<!--    <nav class="navbar navbar-dark bg-dark">-->
+<!--        <span class="navbar-brand"-->
+<!--              th:text="${user.email} + ' with role: ' + ${user.roles.toString.replace('ROLE_','').replace('[', '').replace(']', '')}"></span>-->
+<!--        <ul class="nav navbar-nav navbar-right">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/logout">Logout</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
 
 <!--Боковая панель-->
 <div class="container-fluid">
@@ -34,52 +34,54 @@
                 <li class="nav-item">
                     <a href="/user" class="nav-link">User</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/shop/allDevice" class="nav-link">Shop</a>
+                </li>
             </ul>
         </div>
         <!--           Пустые вкалдки-->
         <div class="col-10 bg-light">
-            <div><h2>Admin panel</h2></div>
+            <div><h2>Shop List</h2></div>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab"
-                       aria-controls="admin" aria-selected="true">User table</a>
+                       aria-controls="admin" aria-selected="true">Shop</a>
                 </li>
-                <li class="nav-item newUser">
-                    <a class="nav-link" id="new-user" data-toggle="tab" href="#new" role="tab"
-                       aria-controls="new" aria-selected="false">New User</a>
+                <li class="nav-item newDevice">
+                    <a class="nav-link" id="new-device" data-toggle="tab" href="#new" role="tab"
+                       aria-controls="new" aria-selected="false">New Device</a>
                 </li>
             </ul>
 
             <div class="tab-content">
-                <!--                Вкладка All users-->
+                <!--                Вкладка All device-->
                 <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-                    <div><h5 class="card-header">All users</h5></div>
+                    <div><h5 class="card-header">All device</h5></div>
                     <table class="table table-striped" id="tableAdmin">
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Role</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
                         </thead>
-                        <tbody id="tableAllUsers">
+                        <tbody id="tableAllDevice">
 
                         <!--                        тут js-->
 
                         </tbody>
                     </table>
 
-                    <!--                            Заполнение модального окна Edit user-->
+                    <!--                            Заполнение модального окна Edit device-->
                     <div class="modal" id="editModal" aria-hidden="true"
                          role="dialog" aria-labelledby="editModalLabel">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Edit user</h5>
+                                    <h5 class="modal-title">Edit device</h5>
                                     <button type="button" class="close" data-dismiss="modal">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -87,28 +89,17 @@
                                 <div class="modal-body" id="editModalBody">
                                     <div class="text-center">
                                         <div class="row justify-content-center align-items-center">
-                                            <form class="text-center" method="post" id="editUserForm">
+                                            <form class="text-center" method="post" id="editDeviceForm">
                                                 <div class="form-group font-weight-bold">
                                                     <label for="id">ID</label>
                                                     <input type="number" class="form-control" id="editId"
                                                            name="id" readonly>
-                                                    <label for="editName">First name</label>
+                                                    <label for="editName">Name</label>
                                                     <input type="text" class="form-control" id="editName"
-                                                           name="username">
-                                                    <label for="editLastName">Last name</label>
-                                                    <input type="text" class="form-control" id="editLastName"
-                                                           name="lastName">
-                                                    <label for="editEmail">Email</label>
-                                                    <input type="email" class="form-control" id="editEmail"
-                                                           name="email">
-                                                    <label for="editPassword">Password</label>
-                                                    <input type="password" class="form-control"
-                                                           id="editPassword" name="password" autocomplete="on">
-
-                                                    <label for="editRole">Role</label>
-                                                    <select multiple class="form-select w-100" size="2"
-                                                            id="editRole" name="editRoles">
-                                                    </select>
+                                                           name="nameDevice">
+                                                    <label for="editDescription">Description</label>
+                                                    <input type="text" class="form-control" id="editDescription"
+                                                           name="descriptionDevice">
                                                 </div>
                                             </form>
                                         </div>
@@ -123,13 +114,13 @@
                         </div>
                     </div>
 
-                    <!--                            Заполнение модального окна Delete user-->
+                    <!--                            Заполнение модального окна Delete device-->
                     <div class="modal fade" id="deleteModal" aria-hidden="true"
                          role="dialog" aria-labelledby="deleteModalLabel">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Delete user</h5>
+                                    <h5 class="modal-title">Delete Device</h5>
                                     <button type="button" class="close" data-dismiss="modal">
                                         &times;
                                     </button>
@@ -137,30 +128,19 @@
                                 <div class="modal-body" id="deleteModalBody">
                                     <div style="text-align: center;">
                                         <div class="row justify-content-center align-items-center">
-                                            <form class="text-center" method="post" id="delUserForm">
-                                                <!--                                                  th:id="${'deleteForm' + user.id}"-->
+                                            <form class="text-center" method="post" id="delDeviceForm">
+                                                <!--                                                  th:id="${'deleteForm' + device.id}"-->
                                                 <div class="form-group font-weight-bold">
                                                     <label for="delId">ID</label>
                                                     <input type="number" class="form-control" id="delId"
                                                            name="id" readonly>
-                                                    <label for="delName">First name</label>
+                                                    <label for="delName">Name</label>
                                                     <input type="text" class="form-control" id="delName"
-                                                           name="username" readonly>
-                                                    <label for="delLastName">Last name</label>
-                                                    <input type="text" class="form-control" id="delLastName"
-                                                           name="lastName" readonly>
+                                                           name="nameDevice" readonly>
+                                                    <label for="delDescription">Description</label>
+                                                    <input type="text" class="form-control" id="delDescription"
+                                                           name="descriptionDevice" readonly>
 
-                                                    <label for="delEmail">Email</label>
-                                                    <input type="email" class="form-control" id="delEmail"
-                                                           name="email" readonly>
-                                                    <label for="delPassword">Password</label>
-                                                    <input type="password" class="form-control" id="delPassword"
-                                                           name="password" autocomplete="on" readonly>
-
-                                                    <label for="delRole">Role</label>
-                                                    <select class="form-select w-100" size="2" id="delRole"
-                                                            name="roles">
-                                                    </select>
                                                 </div>
                                             </form>
                                         </div>
@@ -179,29 +159,24 @@
                     <!--                                        </table>-->
                 </div>
 
-                <!--               Вкладка Add new user-->
+                <!--               Вкладка Add new device-->
                 <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
-                    <h5 class="card-header">Add new user</h5>
+                    <h5 class="card-header">Add new device</h5>
                     <div class="row justify-content-center align-items-center">
-                        <form class="text-center" method="post" id="addNewUserForm">
+                        <form class="text-center" method="post" id="addNewDeviceForm">
                             <div class="form-group font-weight-bold">
-                                <label for="name">First name</label>
-                                <input type="text" class="form-control" id="name" name="username"
-                                       placeholder="First name">
-                                <label for="lastName">Last name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName"
-                                       placeholder="Last name">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="nameDevice"
+                                       placeholder="Name">
+                                <label for="description">Last name</label>
+                                <input type="text" class="form-control" id="description" name="descriptionDevice"
+                                       placeholder="Description">
 
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                       autocomplete="on" placeholder="Password">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" id="price" name="price" placeholder="Price">
 
-                                <label for="addRole">Role</label>
-                                <select multiple class="form-select w-100" size="2" id="addRole" name="addRoles"></select>
 
-                                <button type="button" id="addNewUserButton" class="btn btn-success">Add new user</button>
+                                <button type="button" id="addNewDeviceButton" class="btn btn-success">Add new device</button>
                             </div>
                         </form>
                     </div>
@@ -218,6 +193,6 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <!--<script src="webjars/jquery/3.3.1/jquery.min.js"></script>-->
-<script src="/js/users.js"></script>
+<script src="/js/device.js"></script>
 </body>
 </html>

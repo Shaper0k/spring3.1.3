@@ -29,12 +29,12 @@ public class DeviceRestController {
         return new ResponseEntity<>(device, HttpStatus.OK);
     }
 
-    @PatchMapping("shop/updateDevice")
+    @PatchMapping("shop")
     public ResponseEntity<?> updateDevice(@RequestBody Device device){
         deviceService.updateDevice(device);
         return new ResponseEntity<>(device, HttpStatus.OK);
     }
-    @DeleteMapping("shop/deleteDevice")
+    @DeleteMapping("shop/{id}")
     public ResponseEntity<?> deleteDevice(@PathVariable long id){
         deviceService.removeDeviceById(id);
         return new ResponseEntity<>(HttpStatus.OK);

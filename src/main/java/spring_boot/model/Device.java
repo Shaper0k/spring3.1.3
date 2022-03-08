@@ -9,7 +9,7 @@ public class Device {
     @Id
     @Column(name = "idDevice")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id ;
+    private Long id ;
 
     @Column(name = "nameDevice")
     private String nameDevice;
@@ -28,11 +28,11 @@ public class Device {
     }
     public Device(){}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,7 +60,7 @@ public class Device {
         this.price = price;
     }
 
-    public Device(int id, String nameDevice, String descriptionDevice, int price) {
+    public Device(Long id, String nameDevice, String descriptionDevice, int price) {
         this.id = id;
         this.nameDevice = nameDevice;
         this.descriptionDevice = descriptionDevice;

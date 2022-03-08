@@ -1,8 +1,8 @@
 package spring_boot.service;
 
-import org.springframework.stereotype.Service;
+
 import spring_boot.model.Device;
-import spring_boot.model.Role;
+
 
 import java.util.List;
 

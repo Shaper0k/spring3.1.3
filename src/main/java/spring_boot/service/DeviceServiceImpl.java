@@ -28,11 +28,9 @@ public class DeviceServiceImpl implements DeviceService{
         deviceRepository.save(device);
     }
 
-
-
     @Override
     public Device getDeviceById(long id) {
-       return deviceRepository.getById(id);
+       return deviceRepository.getDeviceById(id);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class DeviceRestController {
         return new ResponseEntity<>(device, HttpStatus.OK);
     }
 
-    @PatchMapping("shop")
+    @PutMapping ("shop")
     public ResponseEntity<?> updateDevice(@RequestBody Device device){
         deviceService.updateDevice(device);
         return new ResponseEntity<>(device, HttpStatus.OK);

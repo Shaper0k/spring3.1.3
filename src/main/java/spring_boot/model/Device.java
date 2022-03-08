@@ -11,18 +11,18 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
 
-    @Column(name = "nameDevice")
-    private String nameDevice;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "descriptionDevice")
-    private String descriptionDevice;
+    @Column(name = "description")
+    private String description;
 
     @Override
     public String toString() {
         return "Device{" +
                 "id=" + id +
-                ", nameDevice='" + nameDevice + '\'' +
-                ", descriptionDevice='" + descriptionDevice + '\'' +
+                ", nameDevice='" + name + '\'' +
+                ", descriptionDevice='" + description + '\'' +
                 ", price=" + price +
                 '}';
     }
@@ -36,20 +36,20 @@ public class Device {
         this.id = id;
     }
 
-    public String getNameDevice() {
-        return nameDevice;
+    public String getName() {
+        return name;
     }
 
-    public void setNameDevice(String nameDevice) {
-        this.nameDevice = nameDevice;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescriptionDevice() {
-        return descriptionDevice;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionDevice(String descriptionDevice) {
-        this.descriptionDevice = descriptionDevice;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPrice() {
@@ -60,10 +60,10 @@ public class Device {
         this.price = price;
     }
 
-    public Device(Long id, String nameDevice, String descriptionDevice, int price) {
+    public Device(Long id, String name, String description, int price) {
         this.id = id;
-        this.nameDevice = nameDevice;
-        this.descriptionDevice = descriptionDevice;
+        this.name = name;
+        this.description = description;
         this.price = price;
     }
 

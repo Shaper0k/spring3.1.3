@@ -19,8 +19,8 @@ function createRows(device) {
 
     let device_data = '<tr id=' + device.id + '>';
     device_data += '<td>' + device.id + '</td>';
-    device_data += '<td>' + device.nameDevice + '</td>';
-    device_data += '<td>' + device.descriptionDevice + '</td>';
+    device_data += '<td>' + device.name + '</td>';
+    device_data += '<td>' + device.description + '</td>';
     device_data += '<td>' + device.price + '</td>';
 
 
@@ -50,10 +50,9 @@ $(document).on('click', '.edit-btn', function () {
         dataType: 'json',
         success: function (device) {
             $('#editId').val(device.id);
-            $('#editName').val(device.nameDevice);
-            $('#editDescription').val(device.descriptionDevice);
+            $('#editName').val(device.name);
+            $('#editDescription').val(device.description);
             $('#editPrice').val(device.price);
-            $('#editRole').empty();
 
         }
     });
@@ -66,8 +65,8 @@ $('#editButton').on('click', (e) => {
 
     var editDevice = {
         id: $("input[name='id']").val(),
-        nameDevice: $("input[name='nameDevice']").val(),
-        descriptionDevice: $("input[name='descriptionDevice']").val(),
+        name: $("input[name='name']").val(),
+        description: $("input[name='description']").val(),
         price: $("input[name='price']").val(),
 
     }
@@ -104,8 +103,8 @@ $(document).on('click', '.del-btn', function () {
         dataType: 'json',
         success: function (device) {
             $('#delId').empty().val(device.id);
-            $('#delName').empty().val(device.nameDevice);
-            $('#delDescription').empty().val(device.descriptionDevice);
+            $('#delName').empty().val(device.name);
+            $('#delDescription').empty().val(device.description);
             $('#delPrice').empty().val(device.price);
 
 
@@ -136,16 +135,16 @@ $('#deleteButton').on('click', (e) => {
 
 $('.newDevice').on('click', () => {
 
-    $('#nameDevice').empty().val('')
-    $('#descriptionDevice').empty().val('')
+    $('#name').empty().val('')
+    $('#description').empty().val('')
     $('#price').empty().val('')
 })
 
 $("#addNewDeviceButton").on('click', () => {
 
     let newDevice = {
-        nameDevice: $('#nameDevice').val(),
-        descriptionDevice: $('#descriptionDevice').val(),
+        name: $('#name').val(),
+        description: $('#description').val(),
         price: $('#price').val(),
 
     }

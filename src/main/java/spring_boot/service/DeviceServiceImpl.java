@@ -44,7 +44,7 @@ public class DeviceServiceImpl implements DeviceService{
     }
 
     @Override
-    public Device getDeviceByName(String name) {
-        return deviceRepository.findByNameDevice(name);
+    public Device getByName(String name) {
+        return deviceRepository.findByName(name);
     }
 }

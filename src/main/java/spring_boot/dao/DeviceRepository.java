@@ -7,7 +7,7 @@ import spring_boot.model.Device;
 
 @Repository
 public interface DeviceRepository extends JpaRepository<Device, Long> {
-    Device findByNameDevice (String deviceName);
+    Device findByName (String deviceName);
 
     Device getDeviceById(long id);
 

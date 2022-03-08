@@ -18,5 +18,5 @@ public interface DeviceService {
 
     List<Device> getAllDevice();
 
-    Device getDeviceByName(String name);
+    Device getByName(String name);
 }
